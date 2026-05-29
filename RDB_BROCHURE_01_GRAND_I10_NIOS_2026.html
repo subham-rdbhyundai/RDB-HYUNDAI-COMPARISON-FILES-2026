@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyundai Grand i10 Nios · RDB Hyundai 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+:root{
+  --navy:#002C5F;--blue:#1A5FA3;--sky:#EBF3FF;
+  --gold:#C4973A;--gold2:#F5E8CE;--gold3:#7A5C1A;
+  --ink:#0C1520;--ink2:#2C3E50;--ink3:#5A6A7A;
+  --paper:#FAFBFC;--card:#fff;--border:#E4EAF2;
+  --green:#1A5C2E;--green2:#E6F4EB;--green3:#0E3D1E;
+  --red:#8B1A1A;--red2:#FFF0F0;
+  --amber:#B8760A;--amber2:#FFF8E8;
+  --r:16px;--rs:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+/* COVER */
+.cover{min-height:100vh;background:var(--navy);position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.cover-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(26,95,163,0.55) 0%,transparent 60%),radial-gradient(ellipse 50% 80% at 5% 85%,rgba(196,151,58,0.1) 0%,transparent 50%),linear-gradient(160deg,#001020 0%,#002C5F 50%,#0A3A80 100%);}
+.cover-circle{position:absolute;top:-180px;right:-120px;width:680px;height:680px;border-radius:50%;border:1px solid rgba(196,151,58,0.12);}
+.cover-circle2{position:absolute;top:-80px;right:-60px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,0.04);}
+.cover-ghost{position:absolute;bottom:-30px;right:-10px;font-family:'Cormorant Garamond',serif;font-size:320px;font-weight:700;color:rgba(255,255,255,0.03);line-height:1;letter-spacing:-8px;pointer-events:none;user-select:none;}
+.cover-inner{position:relative;z-index:2;padding:52px 56px 56px;}
+.cover-rdb{font-size:10px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:44px;display:flex;align-items:center;gap:12px;}
+.cover-rdb::before{content:'';width:32px;height:1px;background:var(--gold);flex-shrink:0;}
+.cover-eye{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(180,210,255,0.5);margin-bottom:10px;}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:700;color:#fff;line-height:.95;margin-bottom:16px;letter-spacing:-2px;}
+.cover h1 em{color:var(--gold);font-style:italic;}
+.cover-tag{font-size:17px;font-weight:300;color:rgba(180,210,255,0.65);max-width:500px;margin-bottom:36px;line-height:1.65;}
+.cover-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;}
+.pill{padding:7px 18px;border-radius:100px;font-size:12.5px;font-weight:600;border:1px solid;}
+.pill.g{background:rgba(196,151,58,0.15);border-color:rgba(196,151,58,0.35);color:var(--gold);}
+.pill.w{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.12);color:rgba(255,255,255,0.75);}
+.cover-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);}
+.cover-price{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:#fff;}
+.cover-price span{font-size:14px;color:rgba(180,210,255,0.45);font-family:'DM Sans',sans-serif;font-weight:400;}
+.cover-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.cbtn{padding:11px 26px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+.cbtn.p{background:var(--gold);color:#fff;}
+.cbtn.s{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;}
+
+/* BODY */
+.body{max-width:920px;margin:0 auto;padding:0 24px 80px;}
+.sec{padding:60px 0 0;}
+.sec-lbl{font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold3);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:10px;}
+.sec-h em{font-style:italic;color:var(--gold);}
+.sec-p{font-size:15.5px;color:var(--ink3);line-height:1.75;max-width:620px;margin-bottom:32px;}
+
+/* NUMBER GRID */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:32px;}
+.num{background:var(--card);padding:28px 20px;text-align:center;}
+.num-v{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px;}
+.num-u{font-size:13px;color:var(--ink3);margin-bottom:3px;}
+.num-l{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);}
+
+/* FEATURE CARDS */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px;}
+.feat{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:26px 22px;position:relative;overflow:hidden;}
+.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--blue));}
+.feat-ico{font-size:30px;margin-bottom:14px;display:block;}
+.feat-h{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.feat-p{font-size:13px;color:var(--ink3);line-height:1.65;}
+.feat-tag{display:inline-block;margin-top:10px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:var(--green2);padding:3px 10px;border-radius:4px;}
+
+/* DARK BAND */
+.dband{background:var(--navy);border-radius:var(--r);padding:44px 44px;margin:44px 0;color:#fff;position:relative;overflow:hidden;}
+.dband::after{content:'';position:absolute;top:-80px;right:-80px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(196,151,58,0.09) 0%,transparent 70%);}
+.dband-lbl{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.dband h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:#fff;margin-bottom:12px;line-height:1.15;}
+.dband p{font-size:15px;color:rgba(180,210,255,0.65);max-width:560px;line-height:1.75;margin-bottom:28px;}
+.dband-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:1;}
+.db{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:var(--rs);padding:20px 18px;}
+.db-l{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.db-v{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;margin-bottom:4px;line-height:1;}
+.db-d{font-size:12px;color:rgba(180,210,255,0.5);line-height:1.5;}
+
+/* COMPARISON SECTION */
+.rival-block{margin-bottom:40px;border-radius:var(--r);overflow:hidden;border:1.5px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,0.04);}
+.rival-head{padding:20px 28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.rh-ico{font-size:32px;flex-shrink:0;}
+.rh-info{flex:1;min-width:160px;}
+.rh-brand{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:3px;}
+.rh-name{font-size:18px;font-weight:700;color:#fff;line-height:1.1;}
+.rh-sub{font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;}
+.rh-badge{background:rgba(255,255,255,0.14);border-radius:100px;padding:5px 16px;font-size:11px;font-weight:700;color:#fff;white-space:nowrap;}
+
+/* COMPARISON TABLE */
+.ct-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+table.ct{width:100%;border-collapse:collapse;font-size:13px;min-width:560px;}
+table.ct thead th{padding:10px 14px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;text-align:center;background:var(--navy);color:#fff;}
+table.ct thead th:first-child{text-align:left;background:#EEF3FA;color:var(--ink3);width:28%;}
+table.ct thead th.th-h{background:var(--navy);}
+table.ct thead th.th-r{opacity:0.85;}
+table.ct thead th.th-w{background:var(--green3);width:14%;}
+table.ct tbody td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:middle;line-height:1.4;}
+table.ct tbody td:first-child{font-weight:600;color:var(--ink);background:#F8FAFB;font-size:12.5px;}
+table.ct tbody td:not(:first-child){text-align:center;font-size:12.5px;color:var(--ink2);}
+table.ct tr.sec-r td{background:#EEF3FA;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ink3);text-align:left;padding:6px 14px;}
+table.ct tr:last-child td{border-bottom:none;}
+.hw{background:#F0FFF6!important;color:var(--green)!important;font-weight:800!important;}
+.rw{background:#FFF0F0!important;}
+.tw{color:var(--amber)!important;font-weight:700!important;}
+.ww{color:var(--green)!important;font-weight:800!important;}
+.lw{color:var(--red)!important;font-weight:700!important;}
+
+/* WINS ROW */
+.wins{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);}
+.win-col{padding:20px 24px;}
+.win-col:first-child{border-right:1px solid var(--border);}
+.win-hd{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;}
+.win-hd.h{color:var(--navy);}
+.win-hd.r{color:var(--ink3);}
+.win-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ink2);padding:5px 0;border-bottom:1px dashed var(--border);line-height:1.5;}
+.win-item:last-child{border-bottom:none;}
+.win-item.yes::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;margin-top:1px;}
+.win-item.no::before{content:'·';color:var(--ink3);font-size:20px;flex-shrink:0;margin-top:-3px;}
+.honest{padding:14px 24px;background:#FFFBF4;border-top:1px solid var(--border);font-size:13px;color:#6B4A10;line-height:1.65;display:flex;gap:10px;}
+.honest .ic{font-size:16px;flex-shrink:0;margin-top:1px;}
+
+/* VERDICT */
+.verdict{background:linear-gradient(150deg,#001020,var(--navy),#0A3A80);border-radius:var(--r);padding:52px 48px;margin:44px 0;color:#fff;position:relative;overflow:hidden;}
+.verdict::before{content:'';position:absolute;bottom:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,151,58,0.07) 0%,transparent 65%);}
+.v-lbl{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.v-h{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;color:#fff;margin-bottom:14px;line-height:1.05;}
+.v-p{font-size:15.5px;font-weight:300;color:rgba(180,210,255,0.72);max-width:600px;line-height:1.8;margin-bottom:28px;}
+.v-p strong{color:#fff;font-weight:600;}
+.v-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;position:relative;z-index:1;}
+.vc{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:var(--rs);padding:18px;}
+.vc-r{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.vc-h{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
+.vc-p{font-size:12px;color:rgba(180,210,255,0.55);line-height:1.5;}
+.v-sum{background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.22);border-radius:var(--rs);padding:18px 20px;font-size:14.5px;color:rgba(255,255,255,0.88);line-height:1.78;}
+.v-sum strong{color:var(--gold);}
+
+/* WHY RDB */
+.rdb{background:var(--gold2);border:1.5px solid rgba(196,151,58,0.22);border-radius:var(--r);padding:40px 44px;margin-bottom:44px;}
+.rdb-lbl{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold3);margin-bottom:10px;}
+.rdb-h{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.rdb-p{font-size:14.5px;color:var(--ink2);margin-bottom:24px;line-height:1.7;max-width:640px;}
+.rdb-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.rdb-item{background:#fff;border-radius:var(--rs);padding:18px 20px;display:flex;gap:12px;align-items:flex-start;}
+.rdb-ico{font-size:22px;flex-shrink:0;margin-top:1px;}
+.rdb-item strong{font-size:13.5px;color:var(--navy);display:block;margin-bottom:3px;font-weight:700;}
+.rdb-item span{font-size:12.5px;color:var(--ink3);line-height:1.55;}
+
+/* CTA */
+.cta{background:var(--navy);border-radius:var(--r);padding:48px 44px;text-align:center;color:#fff;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(196,151,58,0.1) 0%,transparent 60%);}
+.cta-inner{position:relative;z-index:1;}
+.cta h2{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:#fff;margin-bottom:10px;}
+.cta h2 em{color:var(--gold);font-style:italic;}
+.cta p{font-size:15px;color:rgba(180,210,255,0.6);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.65;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.ctabtn{padding:14px 32px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:48px;}
+.ctabtn.p{background:var(--gold);color:#fff;}
+.ctabtn.s{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;}
+.cta-note{font-size:11px;color:rgba(180,210,255,0.3);}
+
+/* PRINT */
+@media print{
+  @page{margin:12mm 10mm;size:A4;}
+  .cover{min-height:auto!important;page-break-after:always;}
+  .cover-bg,.cover-circle,.cover-circle2,.dband,.verdict,.rdb,.cta{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .cta{display:none!important;}
+  body{font-size:11px!important;}
+  .body{padding:0 0 20px!important;}
+  .ct-wrap{overflow:visible!important;}
+  table.ct{min-width:0!important;font-size:10px!important;}
+  table.ct td,table.ct th{padding:5px 8px!important;}
+}
+
+/* RESPONSIVE */
+@media(max-width:720px){
+  .cover-inner{padding:36px 24px 44px;}
+  .cover h1{font-size:54px;}
+  .cover-ghost{font-size:180px;}
+  .body{padding:0 16px 60px;}
+  .nums{grid-template-columns:1fr 1fr;}
+  .feats{grid-template-columns:1fr 1fr;}
+  .dband{padding:32px 24px;}
+  .dband-grid{grid-template-columns:1fr;}
+  .wins{grid-template-columns:1fr;}
+  .win-col:first-child{border-right:none;border-bottom:1px solid var(--border);}
+  .v-cards{grid-template-columns:1fr;}
+  .verdict{padding:36px 24px;}
+  .v-h{font-size:32px;}
+  .rdb{padding:28px 24px;}
+  .rdb-grid{grid-template-columns:1fr;}
+  .cta{padding:36px 24px;}
+  .cta h2{font-size:28px;}
+  .rival-head{padding:16px 20px;}
+  .rh-badge{display:none;}
+}
+@media(max-width:480px){
+  .cover h1{font-size:40px;}
+  .cover-inner{padding:28px 20px 36px;}
+  .feats{grid-template-columns:1fr;}
+  .sec-h{font-size:32px;}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-circle"></div>
+  <div class="cover-circle2"></div>
+  <div class="cover-ghost">i10</div>
+  <div class="cover-inner">
+    <div class="cover-rdb">RDB Hyundai · East Midnapore · 2026</div>
+    <div class="cover-eye">Entry Premium Hatchback</div>
+    <h1>Grand <em>i10</em><br>Nios</h1>
+    <p class="cover-tag">More cabin. More safety. More features. At a price that makes the decision effortless.</p>
+    <div class="cover-pills">
+      <div class="pill g">From ₹5.55 Lakh</div>
+      <div class="pill w">6 Airbags · All Variants</div>
+      <div class="pill w">3 Yrs / Unlimited km</div>
+      <div class="pill w">Petrol · CNG · AMT</div>
+    </div>
+    <div class="cover-foot">
+      <div class="cover-price">₹5.55L <span>onwards · ex-showroom</span></div>
+      <div class="cover-btns">
+        <a href="https://wa.me/919230001414" class="cbtn p">📱 WhatsApp Us</a>
+        <a href="https://automateforms.ai/form/c418dacf-dc15-45b4-94c2-52ff0a7b785f" class="cbtn s">Book Test Drive</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="body">
+
+<!-- WHY THIS CAR -->
+<div class="sec">
+  <div class="sec-lbl">The Grand i10 Nios</div>
+  <h2 class="sec-h">Built for the way<br>India <em>actually</em> drives.</h2>
+  <p class="sec-p">Tight lanes. Monsoon roads. Family road trips. School runs. The Grand i10 Nios was engineered for all of it — with a cabin that surprises you with how much fits inside, safety you never have to compromise on, and a price that makes choosing easy.</p>
+  <div class="nums">
+    <div class="num"><div class="num-v">₹5.55L</div><div class="num-u">Starting Price</div><div class="num-l">Ex-Showroom</div></div>
+    <div class="num"><div class="num-v">6</div><div class="num-u">Airbags Standard</div><div class="num-l">Every Variant</div></div>
+    <div class="num"><div class="num-v">20.25</div><div class="num-u">kmpl ARAI</div><div class="num-l">Petrol Manual</div></div>
+    <div class="num"><div class="num-v">∞ km</div><div class="num-u">Warranty</div><div class="num-l">3 Yrs · No Cap</div></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="sec">
+  <div class="sec-lbl">What You Get</div>
+  <h2 class="sec-h">Features that make every<br>drive <em>better.</em></h2>
+  <p class="sec-p">The Grand i10 Nios packs a genuinely premium experience into a compact body. Here's what stands out.</p>
+  <div class="feats">
+    <div class="feat"><span class="feat-ico">🛡️</span><div class="feat-h">6 Airbags as Standard</div><div class="feat-p">Driver, co-driver, side and curtain airbags — on every variant including the base. No compromise, regardless of budget.</div><span class="feat-tag">Segment Best</span></div>
+    <div class="feat"><span class="feat-ico">📱</span><div class="feat-h">8-inch Touchscreen</div><div class="feat-p">Wireless Android Auto and Apple CarPlay from the Sportz (O) variant. Navigation, music, calls — completely hands-free.</div></div>
+    <div class="feat"><span class="feat-ico">❄️</span><div class="feat-h">Rear AC Vents</div><div class="feat-p">Available from Sportz. In West Bengal's summers, rear passengers stay just as cool as the driver. Most rivals skip this entirely.</div><span class="feat-tag">Rivals Don't Offer</span></div>
+    <div class="feat"><span class="feat-ico">🚗</span><div class="feat-h">Largest Cabin in Class</div><div class="feat-p">More shoulder room and rear legroom than the Swift and Tiago. Your family sits comfortably — every seat, every trip.</div><span class="feat-tag">Roomiest in Segment</span></div>
+    <div class="feat"><span class="feat-ico">⚙️</span><div class="feat-h">AMT Automatic</div><div class="feat-p">No clutch pedal. Smooth, relaxed driving through Kolkata and Haldia traffic. Available from the Corporate AMT at an accessible price.</div></div>
+    <div class="feat"><span class="feat-ico">🌿</span><div class="feat-h">Dual Cylinder CNG</div><div class="feat-p">26.6 km/kg ARAI. The dual-cylinder setup gives more range on a full tank. Ideal for East Midnapore's daily high-mileage commuters.</div><span class="feat-tag">Best CNG Value</span></div>
+  </div>
+</div>
+
+<!-- DARK BAND -->
+<div class="dband">
+  <div class="dband-lbl">Ownership Advantage</div>
+  <h3>The promises that matter<br>long after you drive away.</h3>
+  <p>Buying a car is easy. Owning one should be too. The Grand i10 Nios comes with the most generous ownership package in its segment.</p>
+  <div class="dband-grid">
+    <div class="db"><div class="db-l">Warranty</div><div class="db-v">Unlimited km</div><div class="db-d">3 years with no kilometre cap. Rivals cap at 1 lakh km. Drive as freely as you want.</div></div>
+    <div class="db"><div class="db-l">Service Network</div><div class="db-v">1,500+</div><div class="db-d">Hyundai authorised centres across India. RDB alone has 4 locations in East Midnapore.</div></div>
+    <div class="db"><div class="db-l">Roadside Assist</div><div class="db-v">24 × 7</div><div class="db-d">Hyundai RSA at 1800-102-4645. Towing, battery, tyre — anywhere in India, any time.</div></div>
+  </div>
+</div>
+
+<!-- COMPARISONS -->
+<div class="sec">
+  <div class="sec-lbl">Honest Comparison</div>
+  <h2 class="sec-h">How it compares to<br><em>the competition.</em></h2>
+  <p class="sec-p">We give you the full picture — including where rivals have their strengths — so you make the right decision for your family.</p>
+
+  <!-- VS SWIFT -->
+  <div class="rival-block">
+    <div class="rival-head" style="background:linear-gradient(135deg,#1A237E,#283593);">
+      <div class="rh-ico">🔵</div>
+      <div class="rh-info"><div class="rh-brand">Maruti Suzuki Arena</div><div class="rh-name">Swift 2026</div><div class="rh-sub">₹5.79L–₹8.65L · 1.2L Z-series · 82PS · 25.75 kmpl</div></div>
+      <div class="rh-badge">Nios Wins on Space, Safety & Warranty</div>
+    </div>
+    <div class="ct-wrap">
+      <table class="ct">
+        <thead><tr>
+          <th>Parameter</th>
+          <th class="th-h">Grand i10 Nios</th>
+          <th class="th-r" style="background:#283593;">Maruti Swift</th>
+          <th class="th-w">Edge</th>
+        </tr></thead>
+        <tbody>
+          <tr class="sec-r"><td colspan="4">Price</td></tr>
+          <tr><td>Base Price</td><td class="hw">₹5.55L ✓</td><td>₹5.79L</td><td class="ww">Nios</td></tr>
+          <tr><td>Top Price</td><td class="hw">₹7.92L ✓</td><td>₹8.65L</td><td class="ww">Nios</td></tr>
+          <tr class="sec-r"><td colspan="4">Engine & Efficiency</td></tr>
+          <tr><td>Engine</td><td>1.2L · 83PS / 114Nm</td><td>1.2L · 82PS / 112Nm</td><td class="tw">Tie</td></tr>
+          <tr><td>ARAI Mileage</td><td>20.25 kmpl</td><td class="rw">25.75 kmpl — 5 kmpl more</td><td class="lw">Swift ✓✓</td></tr>
+          <tr><td>CNG Option</td><td class="hw">✓ Dual cylinder (26.6 km/kg) ✓</td><td>✓ Available</td><td class="ww">Both</td></tr>
+          <tr><td>Automatic</td><td class="hw">AMT ✓</td><td>AMT</td><td class="tw">Both</td></tr>
+          <tr class="sec-r"><td colspan="4">Space & Comfort</td></tr>
+          <tr><td>Cabin Width / Shoulder Room</td><td class="hw">Wider — more space ✓</td><td>Narrower — sportier</td><td class="ww">Nios</td></tr>
+          <tr><td>Rear AC Vents</td><td class="hw">✓ Sportz and above ✓</td><td>✗ Not on any variant</td><td class="ww">Nios</td></tr>
+          <tr><td>Boot Space</td><td>260 L</td><td>268 L</td><td class="tw">Similar</td></tr>
+          <tr class="sec-r"><td colspan="4">Safety</td></tr>
+          <tr><td>Airbags</td><td class="hw">6 — every variant ✓</td><td>6 — all variants</td><td class="tw">Both 6</td></tr>
+          <tr><td>ESC Standard</td><td class="hw">✓ All variants ✓</td><td>✓ All variants</td><td class="tw">Both</td></tr>
+          <tr><td>Crash Test</td><td>Not BNCAP tested</td><td class="rw">3-star Euro NCAP</td><td class="lw">Swift ✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Technology</td></tr>
+          <tr><td>Touchscreen</td><td class="hw">8-inch (Sportz+) ✓</td><td>9-inch (VXI+)</td><td class="lw">Swift ✓ (size)</td></tr>
+          <tr><td>Wireless CarPlay</td><td class="hw">✓ Sportz (O)+ ✓</td><td>✓ VXI+</td><td class="tw">Both</td></tr>
+          <tr><td>Auto Climate Control</td><td class="hw">✓ Asta variants ✓</td><td>✓ ZXI+</td><td class="tw">Both</td></tr>
+          <tr class="sec-r"><td colspan="4">Ownership</td></tr>
+          <tr><td>Warranty</td><td class="hw">3 Yrs / Unlimited km ✓</td><td>3 Yrs / 1,00,000 km</td><td class="ww">Nios ✓✓</td></tr>
+          <tr><td>Service Network</td><td>1,500+ Hyundai centres</td><td class="rw">Maruti Arena — widest in India</td><td class="lw">Swift ✓</td></tr>
+          <tr><td>Resale Value</td><td>Good</td><td class="rw">Excellent — Maruti retains well</td><td class="lw">Swift ✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wins">
+      <div class="win-col">
+        <div class="win-hd h">✓ Nios Wins On</div>
+        <div class="win-item yes"><strong>Cheaper</strong> — ₹24K less at base, ₹73K less at top</div>
+        <div class="win-item yes"><strong>Rear AC vents</strong> — Swift has none on any variant</div>
+        <div class="win-item yes"><strong>Unlimited km warranty</strong> — Swift caps at 1 lakh km</div>
+        <div class="win-item yes"><strong>More spacious cabin</strong> for rear passengers</div>
+      </div>
+      <div class="win-col">
+        <div class="win-hd r">· Swift Leads On</div>
+        <div class="win-item no">Significantly better mileage — 25.75 vs 20.25 kmpl</div>
+        <div class="win-item no">More fun to drive — lighter, sportier feel</div>
+        <div class="win-item no">Maruti's unmatched nationwide service reach</div>
+        <div class="win-item no">Better resale value retention</div>
+      </div>
+    </div>
+    <div class="honest"><div class="ic">⚖️</div><div>Swift is a genuinely great car for mileage-first buyers. For families who want more cabin space, rear comfort, a cheaper price, and unlimited km warranty — the Nios is the smarter long-term choice.</div></div>
+  </div>
+
+  <!-- VS TIAGO -->
+  <div class="rival-block">
+    <div class="rival-head" style="background:linear-gradient(135deg,#003087,#00529B);">
+      <div class="rh-ico">🔵</div>
+      <div class="rh-info"><div class="rh-brand">Tata Motors</div><div class="rh-name">Tiago 2026</div><div class="rh-sub">₹4.60L–₹6.98L · 1.2L · 86PS · 5-Star GNCAP</div></div>
+      <div class="rh-badge">Nios Wins on Features · Tiago on Crash Rating</div>
+    </div>
+    <div class="ct-wrap">
+      <table class="ct">
+        <thead><tr>
+          <th>Parameter</th>
+          <th class="th-h">Grand i10 Nios</th>
+          <th class="th-r" style="background:#00529B;">Tata Tiago</th>
+          <th class="th-w">Edge</th>
+        </tr></thead>
+        <tbody>
+          <tr class="sec-r"><td colspan="4">Price</td></tr>
+          <tr><td>Base Price</td><td>₹5.55L</td><td class="rw">₹4.60L — ₹95K cheaper</td><td class="lw">Tiago ✓✓</td></tr>
+          <tr><td>Top Price</td><td class="hw">₹7.92L ✓</td><td>₹6.98L</td><td class="tw">Tiago cheaper</td></tr>
+          <tr class="sec-r"><td colspan="4">Safety — Most Important</td></tr>
+          <tr><td>Global NCAP Rating</td><td>Not tested</td><td class="rw">★★★★★ 5-Star GNCAP</td><td class="lw">Tiago ✓✓✓</td></tr>
+          <tr><td>Airbags — Base Variant</td><td class="hw">6 Airbags standard ✓</td><td>2 airbags (base) · 6 on XT+</td><td class="ww">Nios ✓✓</td></tr>
+          <tr><td>ESC Electronic Stability</td><td class="hw">✓ All variants ✓</td><td>✓ Higher variants only</td><td class="ww">Nios ✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Features</td></tr>
+          <tr><td>Touchscreen Size</td><td class="hw">8-inch ✓</td><td>7-inch (XT+)</td><td class="ww">Nios ✓</td></tr>
+          <tr><td>Rear AC Vents</td><td class="hw">✓ Available ✓</td><td>✗ No variant offers this</td><td class="ww">Nios ✓✓</td></tr>
+          <tr><td>Wireless CarPlay</td><td class="hw">✓ Sportz (O)+ ✓</td><td>✓ XZ+ only</td><td class="ww">Nios ✓ (wider)</td></tr>
+          <tr><td>Auto Climate Control</td><td class="hw">✓ Asta ✓</td><td>✓ XZ+</td><td class="tw">Both top spec</td></tr>
+          <tr><td>Sunroof</td><td>✗</td><td>✗</td><td class="tw">Neither</td></tr>
+          <tr class="sec-r"><td colspan="4">Cabin Quality</td></tr>
+          <tr><td>Interior Premium Feel</td><td class="hw">Higher quality materials ✓</td><td>Solid but utilitarian</td><td class="ww">Nios ✓</td></tr>
+          <tr><td>Rear Passenger Comfort</td><td class="hw">Better legroom + AC vents ✓</td><td>Adequate, no rear vents</td><td class="ww">Nios ✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Ownership</td></tr>
+          <tr><td>Warranty</td><td class="hw">3 Yrs / Unlimited km ✓</td><td>3 Yrs / 1,25,000 km</td><td class="ww">Nios ✓</td></tr>
+          <tr><td>Brand Trust</td><td class="hw">Hyundai — globally trusted ✓</td><td>Tata — fast growing</td><td class="tw">Both strong</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wins">
+      <div class="win-col">
+        <div class="win-hd h">✓ Nios Wins On</div>
+        <div class="win-item yes"><strong>6 airbags from base</strong> — Tiago base has only 2</div>
+        <div class="win-item yes"><strong>Larger 8-inch screen</strong> vs Tiago's 7-inch</div>
+        <div class="win-item yes"><strong>Rear AC vents</strong> — unavailable on Tiago at any price</div>
+        <div class="win-item yes"><strong>More premium cabin</strong> — noticeably better feel</div>
+        <div class="win-item yes"><strong>Unlimited km warranty</strong></div>
+      </div>
+      <div class="win-col">
+        <div class="win-hd r">· Tiago Leads On</div>
+        <div class="win-item no">5-Star GNCAP — certified crash performance</div>
+        <div class="win-item no">₹95K cheaper at base</div>
+        <div class="win-item no">Tata's solid, robust build feel</div>
+        <div class="win-item no">iRA connected car on higher trims</div>
+      </div>
+    </div>
+    <div class="honest"><div class="ic">⚖️</div><div>Tiago's 5-star GNCAP is a genuine safety credential — we say that honestly. But 6 airbags from base, rear AC vents, larger screen, and a more premium cabin make the Nios the better daily car for most families.</div></div>
+  </div>
+
+  <!-- VS GLANZA -->
+  <div class="rival-block">
+    <div class="rival-head" style="background:linear-gradient(135deg,#8B0000,#C62828);">
+      <div class="rh-ico">🔴</div>
+      <div class="rh-info"><div class="rh-brand">Toyota Kirloskar Motor</div><div class="rh-name">Glanza 2026</div><div class="rh-sub">₹6.30L–₹10.62L · 1.2L Dual-Jet · 90PS · Rebadged Baleno</div></div>
+      <div class="rh-badge">Nios Wins on Value · Glanza on Size</div>
+    </div>
+    <div class="ct-wrap">
+      <table class="ct">
+        <thead><tr>
+          <th>Parameter</th>
+          <th class="th-h">Grand i10 Nios</th>
+          <th class="th-r" style="background:#C62828;">Toyota Glanza</th>
+          <th class="th-w">Edge</th>
+        </tr></thead>
+        <tbody>
+          <tr class="sec-r"><td colspan="4">Price</td></tr>
+          <tr><td>Base Price</td><td class="hw">₹5.55L ✓</td><td>₹6.30L — ₹75K more</td><td class="ww">Nios ✓</td></tr>
+          <tr><td>Top Price</td><td class="hw">₹7.92L ✓</td><td>₹10.62L</td><td class="ww">Nios ✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Engine & Efficiency</td></tr>
+          <tr><td>Engine Power</td><td>83PS / 114Nm</td><td class="rw">90PS / 113Nm</td><td class="lw">Glanza ✓</td></tr>
+          <tr><td>ARAI Mileage</td><td>20.25 kmpl</td><td class="rw">22.35 kmpl</td><td class="lw">Glanza ✓</td></tr>
+          <tr><td>CNG Option</td><td class="hw">✓ Dual cylinder ✓</td><td>✓ Available</td><td class="tw">Both</td></tr>
+          <tr class="sec-r"><td colspan="4">Size (Glanza is a larger car)</td></tr>
+          <tr><td>Segment</td><td>B1 compact hatchback</td><td class="rw">B2 premium hatchback</td><td class="lw">Glanza ✓ (bigger)</td></tr>
+          <tr><td>Boot Space</td><td>260 L</td><td class="rw">318 L</td><td class="lw">Glanza ✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Safety</td></tr>
+          <tr><td>Airbags — Base Variant</td><td class="hw">6 standard ✓</td><td>6 (mid variants+)</td><td class="ww">Nios ✓ (universal)</td></tr>
+          <tr class="sec-r"><td colspan="4">Features</td></tr>
+          <tr><td>Touchscreen</td><td class="hw">8-inch ✓</td><td class="rw">9-inch SmartPlay Pro+</td><td class="lw">Glanza ✓</td></tr>
+          <tr><td>Head-Up Display</td><td>✗</td><td class="rw">✓ Top variants</td><td class="lw">Glanza ✓</td></tr>
+          <tr><td>360° Camera</td><td>✗</td><td class="rw">✓ Available</td><td class="lw">Glanza ✓</td></tr>
+          <tr><td>Rear AC Vents</td><td class="hw">✓ ✓</td><td>✓</td><td class="tw">Both</td></tr>
+          <tr class="sec-r"><td colspan="4">Ownership</td></tr>
+          <tr><td>Warranty</td><td class="hw">3 Yrs / Unlimited km ✓</td><td>3 Yrs / 1,00,000 km</td><td class="ww">Nios ✓✓</td></tr>
+          <tr><td>Brand</td><td>Hyundai — excellent</td><td class="rw">Toyota — most trusted India</td><td class="lw">Glanza ✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wins">
+      <div class="win-col">
+        <div class="win-hd h">✓ Nios Wins On</div>
+        <div class="win-item yes"><strong>₹75K cheaper at base</strong></div>
+        <div class="win-item yes"><strong>6 airbags from base</strong> — Glanza gives 6 only mid+</div>
+        <div class="win-item yes"><strong>Unlimited km warranty</strong> vs Glanza's 1L km cap</div>
+        <div class="win-item yes"><strong>Compact footprint</strong> — easier to park daily</div>
+      </div>
+      <div class="win-col">
+        <div class="win-hd r">· Glanza Leads On</div>
+        <div class="win-item no">Larger car — bigger cabin and 318L boot</div>
+        <div class="win-item no">More powerful — 90PS vs 83PS</div>
+        <div class="win-item no">Better mileage — 22.35 kmpl</div>
+        <div class="win-item no">Toyota brand trust and reliability reputation</div>
+        <div class="win-item no">HUD and 360° camera on top variants</div>
+      </div>
+    </div>
+    <div class="honest"><div class="ic">⚖️</div><div>Glanza is a step-up car — bigger, stronger, Toyota badge. At ₹75K more at base and capping warranty at 1L km, the Nios gives better value for buyers who want a compact city car with an unlimited ownership promise.</div></div>
+  </div>
+
+  <!-- VS CELERIO -->
+  <div class="rival-block">
+    <div class="rival-head" style="background:linear-gradient(135deg,#1A3A5C,#2A5788);">
+      <div class="rh-ico">🔷</div>
+      <div class="rh-info"><div class="rh-brand">Maruti Suzuki Arena</div><div class="rh-name">Celerio 2026</div><div class="rh-sub">₹4.99L–₹6.95L · 1.0L · 67PS · 26.68 kmpl claimed</div></div>
+      <div class="rh-badge">Nios Wins Convincingly — Celerio Wins on Mileage Only</div>
+    </div>
+    <div class="ct-wrap">
+      <table class="ct">
+        <thead><tr>
+          <th>Parameter</th>
+          <th class="th-h">Grand i10 Nios</th>
+          <th class="th-r" style="background:#2A5788;">Maruti Celerio</th>
+          <th class="th-w">Edge</th>
+        </tr></thead>
+        <tbody>
+          <tr class="sec-r"><td colspan="4">Price</td></tr>
+          <tr><td>Base Price</td><td>₹5.55L</td><td class="rw">₹4.99L — ₹56K cheaper</td><td class="lw">Celerio ✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Engine</td></tr>
+          <tr><td>Power</td><td class="hw">83PS / 114Nm ✓</td><td>67PS / 89Nm</td><td class="ww">Nios ✓✓</td></tr>
+          <tr><td>ARAI Mileage</td><td>20.25 kmpl</td><td class="rw">26.68 kmpl — best in class</td><td class="lw">Celerio ✓✓✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Safety — Critical Gap</td></tr>
+          <tr><td>Airbags — Base Variant</td><td class="hw">6 Standard ✓✓</td><td>2 airbags (base) · 4 (top)</td><td class="ww">Nios ✓✓✓</td></tr>
+          <tr><td>ESC / Stability Control</td><td class="hw">✓ Standard ✓</td><td>✗ Not available</td><td class="ww">Nios ✓✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Features — Major Gap</td></tr>
+          <tr><td>Touchscreen</td><td class="hw">8-inch + wireless CarPlay ✓</td><td>7-inch (top only)</td><td class="ww">Nios ✓✓</td></tr>
+          <tr><td>Rear AC Vents</td><td class="hw">✓ ✓</td><td>✗ Not available</td><td class="ww">Nios ✓✓</td></tr>
+          <tr><td>Auto Climate</td><td class="hw">✓ Asta ✓</td><td>✗ Not available</td><td class="ww">Nios ✓</td></tr>
+          <tr><td>Wireless CarPlay</td><td class="hw">✓ ✓</td><td>✗ Not available</td><td class="ww">Nios ✓</td></tr>
+          <tr class="sec-r"><td colspan="4">Ownership</td></tr>
+          <tr><td>Warranty</td><td class="hw">3 Yrs / Unlimited km ✓</td><td>3 Yrs / 1,00,000 km</td><td class="ww">Nios ✓</td></tr>
+          <tr><td>Resale Value</td><td class="hw">Good — Hyundai strong ✓</td><td>Moderate — depreciates faster</td><td class="ww">Nios ✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wins">
+      <div class="win-col">
+        <div class="win-hd h">✓ Nios Wins — Comprehensively</div>
+        <div class="win-item yes"><strong>6 airbags standard</strong> — Celerio base has just 2</div>
+        <div class="win-item yes"><strong>ESC stability control</strong> — unavailable on Celerio</div>
+        <div class="win-item yes"><strong>23% more powerful</strong> — 83PS vs 67PS</div>
+        <div class="win-item yes"><strong>8-inch screen + wireless CarPlay</strong> — Celerio has neither in base</div>
+        <div class="win-item yes"><strong>Rear AC vents</strong> and <strong>better resale</strong></div>
+      </div>
+      <div class="win-col">
+        <div class="win-hd r">· Celerio Leads On</div>
+        <div class="win-item no">Extraordinary mileage — 26.68 kmpl is best in class</div>
+        <div class="win-item no">₹56K cheaper at base</div>
+        <div class="win-item no">Lightest car — very easy in tight spaces</div>
+        <div class="win-item no">Maruti service network everywhere</div>
+      </div>
+    </div>
+    <div class="honest"><div class="ic">⚖️</div><div>The Celerio's mileage is genuinely outstanding for budget-conscious high-mileage drivers. On safety, features, power, and resale — the Nios is significantly ahead. The ₹56K premium pays for itself quickly through better ownership.</div></div>
+  </div>
+</div>
+
+<!-- VERDICT -->
+<div class="verdict">
+  <div class="v-lbl">The Bottom Line</div>
+  <div class="v-h">India's most complete<br>entry hatchback.</div>
+  <div class="v-p">No rival in this price range delivers what the Grand i10 Nios does. <strong>Six airbags on every single variant.</strong> The largest cabin in the segment. Rear AC vents. An 8-inch touchscreen with wireless connectivity. A <strong>3-year unlimited kilometre warranty</strong> that no competitor matches. All starting at just ₹5.55 lakh.</div>
+  <div class="v-cards">
+    <div class="vc"><div class="vc-r">vs Maruti Swift</div><div class="vc-h">More space, cheaper, unlimited warranty</div><div class="vc-p">Swift wins on mileage and fun. Nios wins on price, cabin, rear vents, and unlimited km warranty.</div></div>
+    <div class="vc"><div class="vc-r">vs Tata Tiago</div><div class="vc-h">More features — Tiago wins on NCAP cert only</div><div class="vc-p">6 airbags from base vs Tiago's 2. Larger screen, rear AC vents, premium cabin. Tiago wins on crash rating — acknowledged.</div></div>
+    <div class="vc"><div class="vc-r">vs Toyota Glanza</div><div class="vc-h">₹75K cheaper — Glanza is a step-up car</div><div class="vc-p">Glanza is bigger with Toyota trust. Nios saves ₹75K, has 6 airbags from base, unlimited km warranty.</div></div>
+    <div class="vc"><div class="vc-r">vs Maruti Celerio</div><div class="vc-h">Nios wins on almost everything</div><div class="vc-p">Celerio's mileage is impressive. On safety, features, power, and resale — Nios is a different class.</div></div>
+  </div>
+  <div class="v-sum">The <strong>Sportz (O) MT at ₹7.09L</strong> is the sweet spot — wireless CarPlay, 8-inch screen, rear AC vents, auto headlamps, and 6 airbags. The new <strong>Vibe Edition at ₹7.09L</strong> adds a dashcam and sporty styling. For automatic lovers, the <strong>Sportz AMT</strong> is the pick. For maximum value — the <strong>Grand i10 Nios is the answer</strong> in the entry hatchback segment.</div>
+</div>
+
+<!-- WHY RDB -->
+<div class="rdb">
+  <div class="rdb-lbl">Why RDB Hyundai · Not Just Any Dealership</div>
+  <div class="rdb-h">The same Hyundai.<br>A much better experience.</div>
+  <p class="rdb-p">Whether you're in Kolkata, Haldia, Tamluk, Contai, or anywhere across Bengal — you deserve a dealership that treats you like a priority, not a number. That's what RDB Hyundai has been built on.</p>
+  <div class="rdb-grid">
+    <div class="rdb-item"><div class="rdb-ico">🤝</div><div><strong>Personal attention — always</strong><span>Every customer gets a dedicated consultant from first enquiry to delivery. No queues, no being passed around between salespeople.</span></div></div>
+    <div class="rdb-item"><div class="rdb-ico">🚗</div><div><strong>We come to you</strong><span>Test drives at your home or office across all of West Bengal — including Kolkata. You don't need to come to us first.</span></div></div>
+    <div class="rdb-item"><div class="rdb-ico">💰</div><div><strong>Best price guaranteed</strong><span>We match and often beat Kolkata city dealer offers. Being in East Midnapore doesn't mean paying more — often the opposite.</span></div></div>
+    <div class="rdb-item"><div class="rdb-ico">⚡</div><div><strong>24×7 on WhatsApp</strong><span>Questions at 10 PM? Our AI assistant Priyanka is always available. No waiting for a callback the next morning.</span></div></div>
+    <div class="rdb-item"><div class="rdb-ico">📦</div><div><strong>Faster delivery</strong><span>Lower footfall than city mega-dealers means your booking moves faster. Less waiting, quicker delivery to your door.</span></div></div>
+    <div class="rdb-item"><div class="rdb-ico">📍</div><div><strong>4 service locations</strong><span>Haldia · Tamluk · Contai · Main Outlet. We're closest to you for every service visit — not 40 km away in the city.</span></div></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <h2>Ready to drive the<br><em>Grand i10 Nios?</em></h2>
+    <p>Let us bring it to you — test drives at your doorstep across East Midnapore, Kolkata and all of Bengal.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/919230001414" class="ctabtn p">📱 WhatsApp Us Now</a>
+      <a href="https://automateforms.ai/form/c418dacf-dc15-45b4-94c2-52ff0a7b785f" class="ctabtn s">📅 Book a Test Drive</a>
+    </div>
+    <div class="cta-note">RD Motors Pvt Ltd · RDB Hyundai · +91 92300 01414 · www.rdb.hyundaimotor.in · Prices ex-showroom India · May 2026</div>
+  </div>
+</div>
+
+</div><!-- end body -->
+</body>
+</html>
