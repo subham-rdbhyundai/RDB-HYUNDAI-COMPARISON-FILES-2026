@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RDB Hyundai · Complete Model Hub 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --navy:#002C5F; --blue:#1A5FA3; --gold:#C4973A; --gold2:#F5E8CE; --gold3:#7A5C1A;
+  --ink:#0C1520; --ink2:#2C3E50; --ink3:#5A6A7A;
+  --paper:#F4F7FB; --card:#fff; --border:#E2EAF3;
+  --green:#1A6630; --green2:#E8F5EC;
+  --red:#B71C1C; --red2:#FFF0F0;
+  --r:14px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* ── HEADER ── */
+.site-header{background:linear-gradient(150deg,#001020 0%,var(--navy) 55%,#0A3A80 100%);padding:32px 28px 28px;position:relative;overflow:hidden;}
+.site-header::after{content:'RDB';position:absolute;right:-20px;bottom:-40px;font-family:'Cormorant Garamond',serif;font-size:260px;font-weight:700;color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.header-left{}
+.header-eye{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.header-eye::before{content:'';width:20px;height:1px;background:var(--gold);}
+.header-h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:#fff;line-height:1.05;letter-spacing:-1px;}
+.header-h1 em{color:var(--gold);font-style:italic;}
+.header-sub{font-size:13px;color:rgba(180,210,255,0.6);margin-top:6px;max-width:480px;}
+.header-meta{font-size:11px;color:rgba(180,210,255,0.35);margin-top:12px;}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.header-cta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+.hcta{padding:9px 18px;border-radius:100px;font-size:12.5px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.hcta.p{background:var(--gold);color:#fff;}
+.hcta.s{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;}
+
+/* ── SEGMENT NAV ── */
+.seg-nav{background:#fff;border-bottom:1.5px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,44,95,0.07);}
+.seg-nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:0;}
+.seg-nav-inner::-webkit-scrollbar{display:none;}
+.seg-btn{padding:14px 18px;font-size:12px;font-weight:700;color:var(--ink3);white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.15s;background:none;border-top:none;border-left:none;border-right:none;letter-spacing:0.02em;}
+.seg-btn:hover{color:var(--navy);}
+.seg-btn.active{color:var(--navy);border-bottom-color:var(--gold);}
+.seg-count{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--border);font-size:9px;font-weight:800;color:var(--ink3);margin-left:5px;vertical-align:middle;}
+.seg-btn.active .seg-count{background:var(--navy);color:#fff;}
+
+/* ── BODY ── */
+.body{max-width:1200px;margin:0 auto;padding:28px 20px 60px;}
+
+/* ── SEGMENT PANEL ── */
+.seg-panel{display:none;}
+.seg-panel.active{display:block;}
+.seg-intro{margin-bottom:20px;}
+.seg-label{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold3);margin-bottom:5px;display:flex;align-items:center;gap:10px;}
+.seg-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.seg-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.seg-sub{font-size:13px;color:var(--ink3);}
+
+/* ── MODEL GRID ── */
+.model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:32px;}
+
+/* ── MODEL CARD ── */
+.mcard{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 16px rgba(0,44,95,0.05);transition:box-shadow 0.2s;}
+.mcard:hover{box-shadow:0 6px 28px rgba(0,44,95,0.12);}
+.mcard-head{padding:16px 18px 12px;background:var(--navy);position:relative;overflow:hidden;}
+.mcard-head::after{content:attr(data-ghost);position:absolute;right:-8px;bottom:-10px;font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:700;color:rgba(255,255,255,0.05);line-height:1;pointer-events:none;}
+.mcard-seg{font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.mcard-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:3px;}
+.mcard-range{font-size:13px;font-weight:700;color:var(--gold);}
+.mcard-tagline{font-size:11px;color:rgba(180,210,255,0.55);margin-top:3px;}
+
+.mcard-body{padding:14px 18px;}
+
+/* HIGHLIGHT PILLS */
+.highlights{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
+.hl{padding:4px 10px;border-radius:100px;font-size:10.5px;font-weight:600;background:var(--green2);color:var(--green);border:1px solid rgba(26,102,48,0.15);}
+.hl.gold{background:var(--gold2);color:var(--gold3);border-color:rgba(196,151,58,0.2);}
+.hl.navy{background:#EEF2FA;color:var(--navy);border-color:rgba(0,44,95,0.12);}
+
+/* VS RIVALS */
+.vs-section{}
+.vs-label{font-size:9.5px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px;}
+.rival-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);}
+.rival-row:last-child{border-bottom:none;}
+.rival-name{font-size:12.5px;font-weight:600;color:var(--ink2);flex:1;}
+.rival-price{font-size:11.5px;color:var(--ink3);}
+.rival-verdict{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;}
+.rv-win{background:var(--green2);color:var(--green);}
+.rv-close{background:#FFF8E1;color:#B8600A;}
+.rv-lose{background:var(--red2);color:var(--red);}
+
+/* CTA BUTTONS */
+.mcard-ctas{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
+.mcta{padding:9px 10px;border-radius:8px;font-size:11.5px;font-weight:600;text-decoration:none;text-align:center;display:block;transition:all 0.15s;}
+.mcta.p{background:var(--navy);color:#fff;}
+.mcta.p:hover{background:#00408A;}
+.mcta.s{background:var(--gold2);color:var(--gold3);border:1px solid rgba(196,151,58,0.25);}
+.mcta.s:hover{background:var(--gold);color:#fff;}
+.mcta.full{grid-column:1/-1;}
+
+/* ── SEARCH / FILTER BAR ── */
+.filter-bar{display:flex;gap:10px;align-items:center;margin-bottom:20px;flex-wrap:wrap;}
+.search-box{flex:1;min-width:200px;padding:10px 16px;border:1.5px solid var(--border);border-radius:100px;font-size:13.5px;font-family:inherit;outline:none;background:var(--card);}
+.search-box:focus{border-color:var(--blue);}
+.filter-btn{padding:9px 16px;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--card);color:var(--ink3);transition:all 0.15s;}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+/* ── QUICK COMPARE BAR ── */
+.compare-bar{background:var(--navy);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
+.compare-bar-text{font-size:13px;color:rgba(180,210,255,0.7);}
+.compare-bar-text strong{color:#fff;}
+.compare-badges{display:flex;gap:6px;flex-wrap:wrap;}
+.cbadge{padding:4px 12px;background:rgba(255,255,255,0.1);border-radius:100px;font-size:11px;color:rgba(255,255,255,0.7);}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--navy);padding:24px 28px;margin-top:40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;}
+.footer-meta{font-size:11px;color:rgba(180,210,255,0.4);}
+.footer-links{display:flex;gap:12px;}
+.footer-link{font-size:11.5px;color:rgba(180,210,255,0.6);text-decoration:none;}
+.footer-link:hover{color:var(--gold);}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .header-h1{font-size:30px;}
+  .model-grid{grid-template-columns:1fr;}
+  .mcard-ctas{grid-template-columns:1fr;}
+  .mcta.full{grid-column:1;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-eye">RDB Hyundai · East Midnapore · 2026</div>
+      <div class="header-h1">Hyundai <em>Model Hub</em></div>
+      <div class="header-sub">Complete guide to every Hyundai model — pricing, highlights, competitor comparison, and variant-by-variant breakdown. All in one place.</div>
+      <div class="header-meta">🕐 Prices verified June 2026 · Ex-showroom Kolkata · Haldia · Tamluk · Contai</div>
+    </div>
+    <div class="header-right">
+      <div class="header-cta">
+        <a href="https://wa.me/919230001414" class="hcta p">📱 WhatsApp Us</a>
+        <a href="https://automateforms.ai/form/c418dacf-dc15-45b4-94c2-52ff0a7b785f" class="hcta s">📅 Test Drive</a>
+      </div>
+      <div style="font-size:11px;color:rgba(180,210,255,0.35);text-align:right;">+91 92300 01414 · www.rdb.hyundaimotor.in<br>Haldia · Tamluk · Contai · Main Outlet</div>
+    </div>
+  </div>
+</div>
+
+<!-- SEGMENT NAV -->
+<div class="seg-nav">
+  <div class="seg-nav-inner">
+    <button class="seg-btn active" onclick="showSeg('all')">All Models<span class="seg-count">15</span></button>
+    <button class="seg-btn" onclick="showSeg('entry')">Entry Hatchback<span class="seg-count">1</span></button>
+    <button class="seg-btn" onclick="showSeg('microsuv')">Micro SUV<span class="seg-count">1</span></button>
+    <button class="seg-btn" onclick="showSeg('sedan')">Compact Sedan<span class="seg-count">1</span></button>
+    <button class="seg-btn" onclick="showSeg('premhatch')">Premium Hatchback<span class="seg-count">2</span></button>
+    <button class="seg-btn" onclick="showSeg('compactsuv')">Compact SUV<span class="seg-count">2</span></button>
+    <button class="seg-btn" onclick="showSeg('midsizesedan')">Midsize Sedan<span class="seg-count">1</span></button>
+    <button class="seg-btn" onclick="showSeg('midsizesuv')">Midsize SUV<span class="seg-count">2</span></button>
+    <button class="seg-btn" onclick="showSeg('3row')">3-Row SUV<span class="seg-count">1</span></button>
+    <button class="seg-btn" onclick="showSeg('ev')">Electric<span class="seg-count">2</span></button>
+    <button class="seg-btn" onclick="showSeg('commercial')">Commercial<span class="seg-count">2</span></button>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- SEARCH + FILTER -->
+  <div class="filter-bar">
+    <input class="search-box" type="text" placeholder="🔍  Search models, features, competitors..." oninput="filterCards(this.value)" id="searchBox">
+    <button class="filter-btn" onclick="filterPrice('all')" id="fb-all" style="background:var(--navy);color:#fff;border-color:var(--navy);">All Prices</button>
+    <button class="filter-btn" onclick="filterPrice('under10')" id="fb-under10">Under ₹10L</button>
+    <button class="filter-btn" onclick="filterPrice('10to20')" id="fb-10to20">₹10L–₹20L</button>
+    <button class="filter-btn" onclick="filterPrice('above20')" id="fb-above20">Above ₹20L</button>
+  </div>
+
+  <!-- ALL MODELS PANEL (default) -->
+  <div class="seg-panel active" id="panel-all">
+    <div class="seg-intro">
+      <div class="seg-label">Complete Portfolio</div>
+      <div class="seg-title">All 15 Hyundai Models — 2026</div>
+      <div class="seg-sub">Every model RDB Hyundai offers. Click any segment tab to filter.</div>
+    </div>
+    <div class="model-grid" id="all-grid"></div>
+  </div>
+
+  <!-- SEGMENT PANELS — generated by JS -->
+  <div class="seg-panel" id="panel-entry"><div class="seg-intro"><div class="seg-label">Segment · Entry Hatchback · ₹5.60L–₹8.04L</div><div class="seg-title">Entry Hatchback</div><div class="seg-sub">Best-in-class safety and value in the ₹5–8L price band.</div></div><div class="model-grid" id="entry-grid"></div></div>
+  <div class="seg-panel" id="panel-microsuv"><div class="seg-intro"><div class="seg-label">Segment · Micro SUV · ₹5.81L–₹9.61L</div><div class="seg-title">Micro SUV</div><div class="seg-sub">SUV stance and ground clearance at hatchback pricing.</div></div><div class="model-grid" id="microsuv-grid"></div></div>
+  <div class="seg-panel" id="panel-sedan"><div class="seg-intro"><div class="seg-label">Segment · Compact Sedan · ₹6.00L–₹8.60L</div><div class="seg-title">Compact Sedan</div><div class="seg-sub">Boot, space and sedan prestige — only turbo option in class.</div></div><div class="model-grid" id="sedan-grid"></div></div>
+  <div class="seg-panel" id="panel-premhatch"><div class="seg-intro"><div class="seg-label">Segment · Premium Hatchback · ₹6.41L–₹11.53L</div><div class="seg-title">Premium Hatchback</div><div class="seg-sub">Panoramic sunroof, Bose audio, turbo power — above the ordinary.</div></div><div class="model-grid" id="premhatch-grid"></div></div>
+  <div class="seg-panel" id="panel-compactsuv"><div class="seg-intro"><div class="seg-label">Segment · Compact SUV · ₹8.00L–₹15.48L</div><div class="seg-title">Compact SUV</div><div class="seg-sub">India's safest compact SUVs — 5-Star Bharat NCAP, Level 2 ADAS.</div></div><div class="model-grid" id="compactsuv-grid"></div></div>
+  <div class="seg-panel" id="panel-midsizesedan"><div class="seg-intro"><div class="seg-label">Segment · Midsize Sedan · ₹10.99L–₹18.41L</div><div class="seg-title">Midsize Sedan</div><div class="seg-sub">India's most powerful midsize sedan — 160PS turbo, 528L boot.</div></div><div class="model-grid" id="midsizesedan-grid"></div></div>
+  <div class="seg-panel" id="panel-midsizesuv"><div class="seg-intro"><div class="seg-label">Segment · Midsize SUV · ₹10.79L–₹21.21L</div><div class="seg-title">Midsize SUV</div><div class="seg-sub">India's #1 SUV family — Creta, Creta N Line. Proven, powerful, popular.</div></div><div class="model-grid" id="midsizesuv-grid"></div></div>
+  <div class="seg-panel" id="panel-3row"><div class="seg-intro"><div class="seg-label">Segment · 3-Row SUV · ₹14.51L–₹21.25L</div><div class="seg-title">3-Row Family SUV</div><div class="seg-sub">6 or 7 seats, turbo petrol + diesel, captain chairs option.</div></div><div class="model-grid" id="3row-grid"></div></div>
+  <div class="seg-panel" id="panel-ev"><div class="seg-intro"><div class="seg-label">Segment · Electric Vehicles · ₹18.02L–₹55.71L</div><div class="seg-title">Electric Vehicles</div><div class="seg-sub">India's best-selling EV SUV + the World Car of the Year.</div></div><div class="model-grid" id="ev-grid"></div></div>
+  <div class="seg-panel" id="panel-commercial"><div class="seg-intro"><div class="seg-label">Segment · Commercial · ₹6.41L–₹6.96L</div><div class="seg-title">Commercial / Taxi</div><div class="seg-sub">Purpose-built for taxi operators — 6 airbags, factory CNG, best running cost.</div></div><div class="model-grid" id="commercial-grid"></div></div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">RDB Hyundai</div>
+      <div class="footer-meta" style="margin-top:3px;">RD Motors Pvt Ltd · Haldia · Tamluk · Contai · Main Outlet · +91 92300 01414</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://wa.me/919230001414" class="footer-link">📱 WhatsApp</a>
+      <a href="https://automateforms.ai/form/c418dacf-dc15-45b4-94c2-52ff0a7b785f" class="footer-link">📅 Test Drive</a>
+      <a href="http://www.rdb.hyundaimotor.in" class="footer-link">🌐 Website</a>
+    </div>
+    <div class="footer-meta">Prices ex-showroom Kolkata · June 2026<br>Confirm prices with sales team before purchase</div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// MODEL DATA
+// ═══════════════════════════════════════════════════════
+const BASE_VV = "https://subham-rdbhyundai.github.io/Hyundai-Models-Variant-Vs-Variant-/";
+const BASE_COMP = "https://subham-rdbhyundai.github.io/RDB-HYUNDAI-COMPARISON-FILES-2026/";
+
+const MODEL_SEARCH_KEYWORDS = {
+    "nios": "amt automatic cng celerio swift tiago glanza vibe airbags kappa hatchback 6 airbags cruise control asta sportz era magna wireless",
+    "exter": "sunroof amt automatic cng punch fronx magnite kiger micro suv airbags esc dashcam bluelink hx2 hx3 hx4 hx6 hx8 hx10 cruise keyless wireless 360 camera",
+    "aura": "cng turbo dzire tigor amaze sedan airbags amt automatic compact sedan 100ps boot 408l cruise keyless wireless",
+    "i20": "sunroof bose panoramic ivt cvt turbo 120ps baleno altroz glanza airbags wireless charger cruise bluelink dashcam knight dual screen premium hatchback ventilated dct automatic",
+    "i20nline": "sunroof bose panoramic turbo 120ps altroz racer baleno n line suspension twin exhaust red calipers airbags wireless charger cruise performance n-tuned dct",
+    "venue": "sunroof adas level 2 turbo diesel 120ps sonet brezza nexon xuv3xo airbags bluelink dashcam 360 camera wireless charger ventilated cruise keyless 5 star ncap bharat ncap compact suv dct panoramic",
+    "venuenline": "sunroof adas level 2 turbo 120ps sonet nexon n line suspension twin exhaust airbags bluelink wireless charger ventilated cruise 5 star ncap bharat ncap bose panoramic dct",
+    "verna": "sunroof adas level 2 bose turbo 160ps diesel city slavia virtus airbags bluelink wireless charger ventilated heated cruise 528l boot panoramic midsize sedan dct ivt 360 camera",
+    "creta": "sunroof adas level 2 bose turbo 160ps diesel seltos grand vitara hyryder harrier airbags bluelink wireless charger ventilated cruise 360 camera dashcam knight king panoramic midsize suv best resale dct ivt",
+    "cretanline": "sunroof adas level 2 bose turbo 160ps seltos taigun 4 disc brakes n line suspension twin exhaust airbags bluelink wireless charger ventilated cruise 360 camera panoramic performance suv dct",
+    "alcazar": "sunroof adas level 2 bose turbo diesel safari hector xuv7xo 3 row 7 seat 6 seat captain chairs airbags bluelink wireless charger ventilated cruise panoramic family suv 360 camera dct",
+    "cretaev": "sunroof adas level 2 bose electric ev 473km v2l vehicle to load nexon ev windsor ev punch ev airbags bluelink wireless charger ventilated heated 360 camera battery 42kwh 51kwh fast charge panoramic",
+    "ioniq5": "sunroof adas bose electric ev 690km v2l v2g vehicle to grid kia ev6 bmw ix1 mercedes eqa 800v fast charge flat floor lounge heated ventilated panoramic 18 min charging world car of the year airbags wireless charger bluelink 360 camera",
+    "primehb": "cng taxi commercial airbags wagonr tour h2 tiago xpress running cost 47 paise km hatchback rto approved speed limiter gps dashcam",
+    "primesd": "cng taxi commercial airbags dzire tour s xpres-t sedan running cost rto approved speed limiter gps 28 km kg boot usable"
+};
+const MODELS = [
+  {
+    id:"nios", seg:"entry", ghost:"i10",
+    name:"Grand i10 Nios",
+    range:"₹5.60L – ₹8.04L",
+    tagline:"Entry hatchback · 6 airbags standard · 20 variants",
+    highlights:["6 Airbags Standard","27.3 km/kg CNG","AMT Available","20 Variants","VIBE Edition"],
+    hlStyle:["","","navy","navy","gold"],
+    rivals:[
+      {name:"Maruti Swift",price:"₹5.79L–₹8.80L",verdict:"win",why:"6 airbags vs Swift's 2 at same price. Better safety, same fun."},
+      {name:"Tata Tiago",price:"₹4.60L–₹7.82L",verdict:"win",why:"More airbags, better screen, premium feel at competitive price."},
+      {name:"Toyota Glanza",price:"₹6.46L–₹9.64L",verdict:"win",why:"Nios is ₹1.61L cheaper at top variant. Same quality."},
+      {name:"Maruti Celerio",price:"₹4.70L–₹6.73L",verdict:"win",why:"Superior engine, 6 airbags, far more feature-rich."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_01_GRAND_I10_NIOS_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_01_GRAND_I10_NIOS_2026.html",
+  },
+  {
+    id:"exter", seg:"microsuv", ghost:"EXT",
+    name:"Exter",
+    range:"₹5.81L – ₹9.61L",
+    tagline:"2026 Facelift · Micro SUV · 6 Airbags + ESC Standard · India's only 4-cyl micro SUV",
+    highlights:["6 Airbags + ESC All Variants","Sunroof from HX6","Dashcam (HX8+)","BlueLink (HX10)","185mm Ground Clearance"],
+    hlStyle:["","","navy","navy","gold"],
+    rivals:[
+      {name:"Tata Punch",price:"₹5.65L–₹10.60L",verdict:"win",why:"4-cyl engine smoother than Punch's 3-cyl. Bigger 391L boot (Punch: 366L)."},
+      {name:"Maruti Fronx",price:"₹6.85L–₹11.84L",verdict:"win",why:"Exter starts ₹1.21L cheaper. 6 airbags+ESC standard (Fronx base: 2 airbags)."},
+      {name:"Nissan Magnite",price:"₹5.62L–₹10.76L",verdict:"win",why:"Bigger boot, sunroof, better service network in East Midnapore."},
+      {name:"Renault Kiger",price:"₹6.29L–₹11.29L",verdict:"win",why:"Exter starts ₹65K cheaper. 4-cyl more refined than Kiger's 3-cyl."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_02_EXTER_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_02_EXTER_2026.html",
+  },
+  {
+    id:"aura", seg:"sedan", ghost:"Aura",
+    name:"Aura",
+    range:"₹6.00L – ₹8.60L",
+    tagline:"Compact Sedan · Only turbo petrol in class · 408L boot",
+    highlights:["Only Turbo Sedan in Class","100PS Turbo Option","408L Boot","Factory CNG Available","6 Airbags Standard"],
+    hlStyle:["gold","gold","","",""],
+    rivals:[
+      {name:"Maruti Dzire",price:"₹6.26L–₹9.31L",verdict:"win",why:"Aura has turbo option (100PS) — Dzire max 90PS. Same price, more power."},
+      {name:"Tata Tigor",price:"₹5.49L–₹8.74L",verdict:"win",why:"6 airbags vs Tigor's 2. Better safety package at same price."},
+      {name:"Honda Amaze",price:"₹7.51L–₹10.00L",verdict:"win",why:"Aura starts ₹1.51L cheaper. Turbo engine unavailable on Amaze."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_03_AURA_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_03_AURA_2026.html",
+  },
+  {
+    id:"i20", seg:"premhatch", ghost:"i20",
+    name:"i20",
+    range:"₹6.00L – ₹10.63L",
+    tagline:"Premium Hatchback · Panoramic Sunroof · Bose 8-speaker · IVT CVT (only in class)",
+    highlights:["IVT CVT — Only in Class","Bose 8-Speaker","Panoramic Sunroof","1.0L Turbo 120PS","Knight Edition"],
+    hlStyle:["gold","","","","navy"],
+    rivals:[
+      {name:"Maruti Baleno",price:"₹6.61L–₹10.32L",verdict:"win",why:"i20 has turbo engine + Bose. Baleno has no turbo, no Bose at any price."},
+      {name:"Tata Altroz",price:"₹6.41L–₹11.00L",verdict:"win",why:"IVT CVT is smoothest auto in class — Altroz only has DCT/AMT."},
+      {name:"Toyota Glanza",price:"₹6.46L–₹9.64L",verdict:"win",why:"i20 has turbo option, Bose, bigger sunroof. Glanza is rebadged Baleno."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_04_I20_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_04_I20_2026.html",
+  },
+  {
+    id:"i20nline", seg:"premhatch", ghost:"N",
+    name:"i20 N Line",
+    range:"₹9.27L – ₹11.74L",
+    tagline:"Performance Hatchback · 120PS Turbo · N-Tuned Suspension · Twin Exhausts",
+    highlights:["120PS 1.0L Turbo","N-Tuned Suspension","Bose 8-Speaker (N8)","Twin Exhaust Tips","7-speed DCT"],
+    hlStyle:["gold","gold","","",""],
+    rivals:[
+      {name:"Tata Altroz Racer",price:"₹10.34L–₹12.44L",verdict:"win",why:"i20 N Line starts ₹1.13L cheaper. N-tuned suspension is unique in class."},
+      {name:"Maruti Baleno Alpha",price:"₹9.98L–₹10.32L",verdict:"win",why:"Baleno has no N-tuned hardware — just styling. i20 N Line has real mechanical changes."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_05_I20_NLINE_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_05_I20_NLINE_2026.html",
+  },
+  {
+    id:"venue", seg:"compactsuv", ghost:"Venue",
+    name:"Venue",
+    range:"₹8.00L – ₹15.83L",
+    tagline:"All-New 2025 · 5-Star Bharat NCAP · Level 2 ADAS · 3 Engines",
+    highlights:["5-Star Bharat NCAP","Level 2 ADAS from HX5","Petrol · Turbo · Diesel","BlueLink 60+ Features","Dashcam (HX6T+)"],
+    hlStyle:["gold","gold","","","navy"],
+    rivals:[
+      {name:"Kia Sonet",price:"₹7.30L–₹15.65L",verdict:"win",why:"Venue has 5-Star Bharat NCAP. Sonet yet to be certified."},
+      {name:"Maruti Brezza",price:"₹8.34L–₹15.05L",verdict:"win",why:"Level 2 ADAS on Venue from ₹9.14L. Brezza has no Level 2 ADAS."},
+      {name:"Tata Nexon",price:"₹7.37L–₹16.00L",verdict:"close",why:"Nexon has 5-Star NCAP too. Venue wins on BlueLink + 3 engine options."},
+      {name:"Mahindra XUV 3XO",price:"₹7.49L–₹15.49L",verdict:"close",why:"XUV 3XO has good features, Venue wins on 5-Star BNCAP + ADAS breadth."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_06_VENUE_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_06_VENUE_2026.html",
+  },
+  {
+    id:"venuenline", seg:"compactsuv", ghost:"N",
+    name:"Venue N Line",
+    range:"₹10.66L – ₹15.67L",
+    tagline:"Sporty Compact SUV · 5-Star BNCAP · Level 2 ADAS All Variants · N-Tuned",
+    highlights:["5-Star Bharat NCAP","Level 2 ADAS All Variants","120PS Turbo","N-Tuned Suspension","Ventilated Seats (N10)"],
+    hlStyle:["gold","gold","","",""],
+    rivals:[
+      {name:"Kia Sonet X-Line",price:"₹14.85L–₹15.65L",verdict:"win",why:"Venue N Line starts ₹4.2L cheaper for N6. N-tuned suspension is real performance upgrade."},
+      {name:"Tata Nexon Creative+ S",price:"₹14.22L–₹16.00L",verdict:"win",why:"Venue N Line has actual N mechanical package — Nexon Creative is styling only."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_07_VENUE_NLINE_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_07_VENUE_NLINE_2026.html",
+  },
+  {
+    id:"verna", seg:"midsizesedan", ghost:"Verna",
+    name:"Verna",
+    range:"₹10.99L – ₹18.41L",
+    tagline:"2026 Facelift · 160PS Turbo · Largest Boot in Class · Level 2 ADAS",
+    highlights:["160PS — Segment Best","528L Boot — Segment Largest","Level 2 ADAS","Bose 8-Speaker","Ventilated + Heated Seats"],
+    hlStyle:["gold","gold","","",""],
+    rivals:[
+      {name:"Honda City",price:"₹12.00L–₹21.00L",verdict:"win",why:"Verna starts ₹1.02L cheaper. 160PS turbo vs City's max 121PS."},
+      {name:"Skoda Slavia",price:"₹10.50L–₹19.00L",verdict:"close",why:"Both have turbo. Verna has bigger boot (528L vs 521L) + ventilated seats."},
+      {name:"VW Virtus",price:"₹11.50L–₹19.00L",verdict:"close",why:"Virtus has good build. Verna wins on Level 2 ADAS + 160PS option."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_08_VERNA_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_08_VERNA_2026.html",
+  },
+  {
+    id:"creta", seg:"midsizesuv", ghost:"Creta",
+    name:"Creta",
+    range:"₹10.91L – ₹20.11L",
+    tagline:"India's #1 SUV · 10 Consecutive Years · Best Resale Value · 3 Engines",
+    highlights:["#1 India Sales — 10 Years","Best Resale Value in Class","Level 2 ADAS","3 Engines — Petrol/Diesel/Turbo","King 160PS Edition"],
+    hlStyle:["gold","gold","","","navy"],
+    rivals:[
+      {name:"Kia Seltos",price:"₹10.90L–₹21.65L",verdict:"win",why:"Creta has better resale data. Both are excellent — Creta wins on trust."},
+      {name:"Maruti Grand Vitara",price:"₹10.70L–₹20.19L",verdict:"win",why:"Creta has 160PS turbo King. Grand Vitara max 103PS."},
+      {name:"Toyota Hyryder",price:"₹10.79L–₹21.00L",verdict:"close",why:"Hyryder has strong hybrid. Creta wins on performance options + resale."},
+      {name:"Tata Harrier",price:"₹14.99L–₹25.50L",verdict:"close",why:"Creta starts ₹4.2L cheaper. Harrier is bigger — different use case."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_09_CRETA_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_09_CRETA_2026.html",
+  },
+  {
+    id:"cretanline", seg:"midsizesuv", ghost:"N",
+    name:"Creta N Line",
+    range:"₹19.03L – ₹20.10L",
+    tagline:"Performance SUV · 160PS Turbo · 4 Disc Brakes — Only Midsize SUV · N-Tuned",
+    highlights:["4 Disc Brakes — Segment Exclusive","160PS 1.5T Turbo","N-Tuned Suspension","Level 2 ADAS Both Variants","Bose + Ventilated Seats"],
+    hlStyle:["gold","gold","","",""],
+    rivals:[
+      {name:"Kia Seltos X-Line",price:"₹18.65L–₹19.25L",verdict:"win",why:"Only Creta N Line has all 4 disc brakes + N-tuned suspension. Seltos X-Line is styling only."},
+      {name:"VW Taigun GT",price:"₹18.50L–₹20.50L",verdict:"close",why:"Both are sporty. Creta N Line has 4 disc brakes exclusive. Taigun has DSG gearbox."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_10_CRETA_NLINE_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_10_CRETA_NLINE_2026.html",
+  },
+  {
+    id:"alcazar", seg:"3row", ghost:"Alcazar",
+    name:"Alcazar",
+    range:"₹14.51L – ₹21.25L",
+    tagline:"3-Row Family SUV · 6 or 7 Seats · Turbo Petrol + Diesel · Choose Seating Config",
+    highlights:["6 or 7 Seats — You Choose","160PS Turbo Petrol","Level 2 ADAS (Signature)","Panoramic Sunroof","Bose Audio"],
+    hlStyle:["gold","","","",""],
+    rivals:[
+      {name:"Tata Safari",price:"₹15.49L–₹26.44L",verdict:"win",why:"Alcazar starts ₹99K cheaper. Captain chair option (6-seat) on Alcazar — Safari 7-seat only."},
+      {name:"MG Hector Plus",price:"₹16.95L–₹22.95L",verdict:"win",why:"Alcazar starts ₹2.45L cheaper. More proven Hyundai reliability."},
+      {name:"Mahindra XUV 7XO",price:"₹14.99L–₹26.99L",verdict:"close",why:"XUV 7XO has ADAS. Alcazar wins on turbo petrol smoothness + Hyundai service."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_11_ALCAZAR_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_11_ALCAZAR_2026.html",
+  },
+  {
+    id:"cretaev", seg:"ev", ghost:"EV",
+    name:"Creta Electric",
+    range:"₹18.03L – ₹24.70L",
+    tagline:"India's Best-Selling EV SUV · 473km ARAI Range · V2L · Fast Charge",
+    highlights:["473km ARAI Range (51.4kWh)","V2L — Power Appliances from Car","Level 2 ADAS All Variants","8-Year Battery Warranty","BlueLink 60+ EV Features"],
+    hlStyle:["gold","gold","","",""],
+    rivals:[
+      {name:"Tata Nexon EV",price:"₹12.49L–₹19.49L",verdict:"close",why:"Nexon EV is cheaper. Creta Electric has bigger battery, more range, V2L."},
+      {name:"MG Windsor EV",price:"₹13.50L–₹18.50L",verdict:"close",why:"Windsor has BaaS option. Creta Electric wins on range + Hyundai trust."},
+      {name:"Tata Punch EV",price:"₹9.69L–₹14.99L",verdict:"close",why:"Punch EV is smaller and cheaper. Creta Electric is proper 5-seater with more range."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_12_CRETA_ELECTRIC_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_12_CRETA_ELECTRIC_2026.html",
+  },
+  {
+    id:"ioniq5", seg:"ev", ghost:"IONIQ",
+    name:"Ioniq 5",
+    range:"₹55.71L",
+    tagline:"World Car of the Year 2022 · 690km ARAI · 800V Fast Charge · 18 Min 10–80%",
+    highlights:["World Car of the Year 2022","690km ARAI Range","800V Charging — 18 Min 10–80%","V2L + V2G","Flat Floor Lounge Cabin"],
+    hlStyle:["gold","gold","gold","",""],
+    rivals:[
+      {name:"Kia EV6",price:"₹60.97L–₹65.97L",verdict:"win",why:"Ioniq 5 is ₹5.27L cheaper than EV6 base. Same platform, lower price."},
+      {name:"BMW iX1",price:"₹66.90L+",verdict:"win",why:"Ioniq 5 is ₹11.2L cheaper. 690km vs iX1's 440km WLTP range."},
+      {name:"Mercedes EQA",price:"₹66.00L+",verdict:"win",why:"Ioniq 5 is ₹10.3L cheaper. World Car of the Year vs none for EQA."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_13_IONIQ5_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_13_IONIQ5_2026.html",
+  },
+  {
+    id:"primehb", seg:"commercial", ghost:"HB",
+    name:"Prime HB",
+    range:"₹6.41L",
+    tagline:"Commercial Taxi Hatchback · 27.32 km/kg · 6 Airbags · Factory CNG · 47p/km",
+    highlights:["6 Airbags Standard","27.32 km/kg CNG","47 Paise/km Running Cost","Factory RTO-Approved CNG","5-Year Warranty Option"],
+    hlStyle:["gold","","","",""],
+    rivals:[
+      {name:"Maruti WagonR Tour H2",price:"₹5.00L–₹5.50L",verdict:"win",why:"Prime HB has 6 airbags vs 2. Same CNG mileage, safer for passengers."},
+      {name:"Tata Tiago Xpress",price:"₹4.95L–₹5.50L",verdict:"win",why:"Prime HB 6 airbags vs Tiago Xpress 2. Higher passenger safety = better ratings."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_14_PRIME_HB_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_14_PRIME_HB_2026.html",
+  },
+  {
+    id:"primesd", seg:"commercial", ghost:"SD",
+    name:"Prime SD",
+    range:"₹6.96L",
+    tagline:"Commercial Taxi Sedan · 28.40 km/kg — Class Best · 6 Airbags · Usable Boot",
+    highlights:["6 Airbags Standard","28.40 km/kg — Class Best","Usable Boot with CNG","Sedan Fare Premium Earnings","Factory RTO-Approved CNG"],
+    hlStyle:["gold","gold","","",""],
+    rivals:[
+      {name:"Maruti Dzire Tour S",price:"₹5.90L–₹6.80L",verdict:"win",why:"Prime SD has 6 airbags vs Dzire Tour's 2. ₹15–30 more per trip as sedan."},
+      {name:"Tata Xpres T",price:"₹6.00L–₹7.00L",verdict:"win",why:"Prime SD 6 airbags vs Xpres T 2. Better passenger safety = higher ratings."},
+    ],
+    vvLink: BASE_VV + "RDB_VARIANT_GUIDE_15_PRIME_SD_2026.html",
+    compLink: BASE_COMP + "RDB_BROCHURE_15_PRIME_SD_2026.html",
+  },
+];
+
+// ═══════════════════════════════════════════════════════
+// RENDER FUNCTIONS
+// ═══════════════════════════════════════════════════════
+const VERDICT_LABELS = {win:"Nios Wins",close:"Close Match",lose:"Rival Wins"};
+const VERDICT_CLASSES = {win:"rv-win",close:"rv-close",lose:"rv-lose"};
+
+function renderCard(model) {
+  const highlights = model.highlights.map((h,i) =>
+    `<div class="hl ${model.hlStyle[i]||''}">${h}</div>`
+  ).join('');
+
+  const rivals = model.rivals.map(r => `
+    <div class="rival-row" title="${r.why}">
+      <div class="rival-name">${r.name}</div>
+      <div class="rival-price">${r.price}</div>
+      <div class="rival-verdict ${VERDICT_CLASSES[r.verdict]}">${r.verdict==='win'?'Hyundai Wins':r.verdict==='close'?'Close Match':'Rival Leads'}</div>
+    </div>
+  `).join('');
+
+  const compBtn = model.compLink
+    ? `<a href="${model.compLink}" target="_blank" class="mcta s">📊 vs Competition</a>`
+    : `<div class="mcta s" style="opacity:.4;cursor:default;">📊 vs Competition</div>`;
+
+  const searchKeywords = (MODEL_SEARCH_KEYWORDS[model.id] || '') + ' ' +
+    model.name.toLowerCase() + ' ' +
+    model.tagline.toLowerCase() + ' ' +
+    model.highlights.join(' ').toLowerCase() + ' ' +
+    model.rivals.map(r => r.name.toLowerCase() + ' ' + r.why.toLowerCase()).join(' ') + ' ' +
+    model.range;
+
+  return `
+    <div class="mcard" data-seg="${model.seg}" data-name="${model.name.toLowerCase()}" data-range="${model.range}" data-search="${searchKeywords.replace(/"/g, '&quot;')}">
+      <div class="mcard-head" data-ghost="${model.ghost}">
+        <div class="mcard-seg">${{entry:'Entry Hatchback',microsuv:'Micro SUV',sedan:'Compact Sedan',premhatch:'Premium Hatchback',compactsuv:'Compact SUV',midsizesedan:'Midsize Sedan',midsizesuv:'Midsize SUV','3row':'3-Row Family SUV',ev:'Electric Vehicle',commercial:'Commercial / Taxi'}[model.seg]}</div>
+        <div class="mcard-name">${model.name}</div>
+        <div class="mcard-range">${model.range}</div>
+        <div class="mcard-tagline">${model.tagline}</div>
+      </div>
+      <div class="mcard-body">
+        <div class="vs-label">Key Highlights</div>
+        <div class="highlights">${highlights}</div>
+        <div class="vs-label" style="margin-top:10px;">vs Competition</div>
+        <div class="vs-section">${rivals}</div>
+        <div class="mcard-ctas">
+          <a href="${model.vvLink}" target="_blank" class="mcta p">🔍 Variant Guide</a>
+          ${compBtn}
+        </div>
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// POPULATE GRIDS
+// ═══════════════════════════════════════════════════════
+function populate() {
+  const allGrid = document.getElementById('all-grid');
+  allGrid.innerHTML = MODELS.map(renderCard).join('');
+
+  const segs = ['entry','microsuv','sedan','premhatch','compactsuv','midsizesedan','midsizesuv','3row','ev','commercial'];
+  segs.forEach(seg => {
+    const grid = document.getElementById(seg+'-grid');
+    if(grid) grid.innerHTML = MODELS.filter(m=>m.seg===seg).map(renderCard).join('');
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// SEGMENT SWITCHING
+// ═══════════════════════════════════════════════════════
+let currentSeg = 'all';
+function showSeg(seg) {
+  document.querySelectorAll('.seg-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+seg).classList.add('active');
+  event.target.classList.add('active');
+  currentSeg = seg;
+  document.getElementById('searchBox').value = '';
+}
+
+// ═══════════════════════════════════════════════════════
+// SEARCH
+// ═══════════════════════════════════════════════════════
+function filterCards(query) {
+  const q = query.toLowerCase().trim();
+
+  // Always switch to all-models view when searching
+  document.querySelectorAll('.seg-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-all').classList.add('active');
+
+  if(!q) {
+    // Empty query — show all
+    document.querySelectorAll('#all-grid .mcard').forEach(card => card.style.display = '');
+    return;
+  }
+
+  // Multi-word search: all words must match
+  const terms = q.split(/\s+/).filter(Boolean);
+
+  document.querySelectorAll('#all-grid .mcard').forEach(card => {
+    // Search in data-search (comprehensive keyword bank) + visible card name
+    const searchable = (card.dataset.search || '') + ' ' + (card.dataset.name || '');
+    const match = terms.every(term => searchable.includes(term));
+    card.style.display = match ? '' : 'none';
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// PRICE FILTER
+// ═══════════════════════════════════════════════════════
+let currentPriceFilter = 'all';
+function filterPrice(range) {
+  currentPriceFilter = range;
+  ['all','under10','10to20','above20'].forEach(r => {
+    document.getElementById('fb-'+r).classList.remove('active');
+    document.getElementById('fb-'+r).style.background='';
+    document.getElementById('fb-'+r).style.color='';
+    document.getElementById('fb-'+r).style.borderColor='';
+  });
+  const btn = document.getElementById('fb-'+range);
+  btn.style.background='var(--navy)';
+  btn.style.color='#fff';
+  btn.style.borderColor='var(--navy)';
+
+  const cards = document.querySelectorAll('.mcard');
+  cards.forEach(card => {
+    let show = true;
+    const rangeStr = card.dataset.range || '';
+    // Extract ALL prices from range string like "₹5.60L – ₹8.04L" or "₹55.71L"
+    const allPrices = [...rangeStr.matchAll(/₹([\d.]+)L/g)].map(m => parseFloat(m[1]));
+    if(allPrices.length > 0) {
+      const minPrice = Math.min(...allPrices);
+      const maxPrice = Math.max(...allPrices);
+      if(range === 'under10') show = minPrice < 10;
+      else if(range === '10to20') show = minPrice <= 20 && maxPrice >= 10;
+      else if(range === 'above20') show = maxPrice > 20;
+    }
+    card.style.display = show ? '' : 'none';
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', populate);
+</script>
+</body>
+</html>
